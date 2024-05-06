@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
     // origin: "http://localhost:3000",
-    origin: "https://study-notion-six-zeta.vercel.app",
+    origin: "https://study-notion-n47suw43g-piyush-pandeys-projects.vercel.app/",
     credentials: true,
 }))
 app.use(fileUpload({
