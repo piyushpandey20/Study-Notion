@@ -20,7 +20,7 @@ database.connect();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: "http://localhost:3000",
+    // origin: "http://localhost:3000",
     origin: "https://study-notion-six-zeta.vercel.app/",
     credentials: true,
 }))
