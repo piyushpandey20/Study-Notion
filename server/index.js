@@ -22,6 +22,7 @@ app.use(cookieParser());
 app.use(cors({
     // origin: "http://localhost:3000",
     origin: "https://study-notion-rho-eight.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
     // origin: "https://study-notion-frontend-edtech.netlify.app",
     credentials: true,
 }))
