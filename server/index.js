@@ -20,8 +20,8 @@ database.connect();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: "http://localhost:3000",
-    // origin: "https://study-notion-rho-eight.vercel.app",
+    // origin: "http://localhost:3000",
+    origin: "https://study-notion-isuvi83wc-piyush-pandeys-projects.vercel.app",
     // origin: "https://study-notion-frontend-edtech.netlify.app",
     credentials: true,
 }))
