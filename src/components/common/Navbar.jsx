@@ -12,16 +12,16 @@ import { useState } from 'react'
 import { BsChevronDown } from "react-icons/bs"
 import { ACCOUNT_TYPE } from '../../utils/constants'
 
-// const subLinks = [
-//     {
-//         title: "python",
-//         link:"/catalog/python"
-//     },
-//     {
-//         title: "web dev",
-//         link:"/catalog/web-development"
-//     },
-// ];
+const subLinks = [
+    {
+        name: "DSA",
+        // link:"/catalog/dsa"
+    },
+    {
+        name: "JAVA",
+        // link:"/catalog/java"
+    },
+];
 
 
 const Navbar = () => {
@@ -30,20 +30,20 @@ const Navbar = () => {
     const {user} = useSelector( (state) => state.profile );
     const {totalItems} = useSelector( (state) => state.cart )
     const location = useLocation();
-    const [subLinks, setSubLinks] = useState([])
+    // const [subLinks, setSubLinks] = useState([])
     const [loading, setLoading] = useState(false)
 
-    useEffect(() => async() => {
-        setLoading(true)
-          try {
-            const res = await apiConnector("GET", categories.CATEGORIES_API)
-            console.log("Categories",res)
-            setSubLinks(res.data.allCategories)
-          } catch (error) {
-            console.log("Could not fetch Categories.", error)
-          }
-          setLoading(false)
-    },[])
+    // useEffect(() => async() => {
+    //     setLoading(true)
+    //       try {
+    //         const res = await apiConnector("GET", categories.CATEGORIES_API)
+    //         console.log("Categories",res)
+    //         setSubLinks(res.data.allCategories)
+    //       } catch (error) {
+    //         console.log("Could not fetch Categories.", error)
+    //       }
+    //       setLoading(false)
+    // },[])
     
       const matchRoute = (route) => {
         return matchPath({ path: route }, location.pathname)
