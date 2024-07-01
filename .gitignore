@@ -3,14 +3,14 @@ node_modules_linux
 server/localdev-config.json
 
 # dependencies
-/node_modules
+.\node_modules\
 
 # testing
 /coverage
 .nyc_output/
 
 # production
-/build
+./build
 
 # misc
 .DS_Store
