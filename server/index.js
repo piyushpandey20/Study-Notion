@@ -20,7 +20,8 @@ database.connect();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: "https://studynotion-frontend-lac.vercel.app",
+    origin: "http://localhost:3000",
+    // origin: "https://studynotion-frontend-lac.vercel.app",
     // origin: "https://study-notion-two-sandy.vercel.app",
     // origin: "https://study-notion-frontend-edtech.netlify.app",
     credentials: true,
@@ -32,10 +33,10 @@ app.use(fileUpload({
 
 cloudinaryConnect();
 
-app.use("/auth", userRoutes);
-app.use("/profile", profileRoutes);
-app.use("/course", courseRoutes);
-app.use("/payment", paymentRoutes);
+app.use("/api/v1/auth", userRoutes);
+app.use("/api/v1/profile", profileRoutes);
+app.use("/api/v1/course", courseRoutes);
+app.use("/api/v1/payment", paymentRoutes);
 
 //default route
 app.get("/", (req, res) => {
