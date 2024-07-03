@@ -37,7 +37,6 @@ exports.createCourse = async (req, res) => {
         //todo:verify that userId and instructorDetails._id are same or diff
         const userId = req.user.id;
         const instructorDetails = await User.findById(userId);
-        console.log("Instructor Details", instructorDetails);
         if (!instructorDetails) {
             return res.status(404).json({
                 success: false,
@@ -197,7 +196,6 @@ exports.editCourse = async (req, res) => {
   
       // If Thumbnail Image is found, update it
       if (req.files) {
-        console.log("thumbnail update")
         const thumbnail = req.files.thumbnailImage
         const thumbnailImage = await uploadImageToCloudinary(
           thumbnail,
@@ -331,9 +329,7 @@ exports.getFullCourseDetails = async (req, res) => {
         courseID: courseId,
         userId: userId,
       })
-  
-      console.log("courseProgressCount : ", courseProgressCount)
-  
+    
       if (!courseDetails) {
         return res.status(400).json({
           success: false,

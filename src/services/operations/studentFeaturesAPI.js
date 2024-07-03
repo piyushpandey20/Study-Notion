@@ -24,21 +24,18 @@ function loadScript(src){
 
 export async function buyCourse(token,courses,userDetails,navigate,dispatch){
     const toastId = toast.loading("Loading....")
-    // console.log("courses",courses)
     try{
         const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js")
         if(!res){
             toast.error("Razorpay sdk failed to load")
             return
         }
-        // console.log("front",token)
-        //initate the 
+
         const orderResponse = await apiConnector("POST",COURSE_PAYMENT_API,
         {courses,},
         {
             Authorization:`Bearer ${token}`
         })
-        // console.log("object",orderResponse)
 
         if(!orderResponse.data.success){
             throw new Error(orderResponse.data.message)
@@ -79,7 +76,6 @@ export async function buyCourse(token,courses,userDetails,navigate,dispatch){
 
 async function sendPaymentSuccessEmail(response,amount,token){
     try{
-        // console.log("Abhi tgak shi tha")
         await apiConnector("POST",SEND_PAYMENT_SUCCESS_EMAIL_API,{
             orderId:response.razorpay_order_id,
             paymentId:response.razorpay_payment_id,
@@ -96,12 +92,10 @@ async function verifyPayment(bodyData,token,navigate,dispatch){
     const toastId = toast.loading("Verifying payment....")
     dispatch(setPaymentLoading(true))
     try{    
-        // console.log("inside verifying pay")
         const response = await apiConnector("POST",COURSE_VERIFY_API,bodyData,{
             Authorization:`Bearer ${token}`,
         })
-        // console.log("response",response)
-        // console.log("bodyData",bodyData)
+
         if(!response.data.success){
             throw new Error(response.data.message)
         }

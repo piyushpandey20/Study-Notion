@@ -4,7 +4,7 @@ import { Link, matchPath } from 'react-router-dom'
 import {NavbarLinks} from "../../data/navbar-links"
 import { useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import {AiOutlineShoppingCart} from "react-icons/ai"
+import {AiOutlineMenu,AiOutlineShoppingCart} from "react-icons/ai"
 import ProfileDropDown from '../core/Auth/ProfileDropDown'
 import { apiConnector } from '../../services/apiconnector'
 import { categories } from '../../services/apis'
@@ -12,20 +12,7 @@ import { useState } from 'react'
 import { BsChevronDown } from "react-icons/bs"
 import { ACCOUNT_TYPE } from '../../utils/constants'
 
-// const subLinks = [
-//     {
-//         title: "python",
-//         link:"/catalog/python"
-//     },
-//     {
-//         title: "web dev",
-//         link:"/catalog/web-development"
-//     },
-// ];
-
-
 const Navbar = () => {
-    // console.log("Printing base url: ",process.env.REACT_APP_BASE_URL);
     const {token} = useSelector( (state) => state.auth );
     const {user} = useSelector( (state) => state.profile );
     const {totalItems} = useSelector( (state) => state.cart )
@@ -46,23 +33,23 @@ const Navbar = () => {
       })()
     }, [])
   
-    // console.log("sub links", subLinks)
-  
     const matchRoute = (route) => {
       return matchPath({ path: route }, location.pathname)
     }
 
   return (
-    <div className='flex h-14 items-center justify-center border-b-[1px] border-b-richblack-700'>
-      <div className='flex w-11/12 max-w-maxContent items-center justify-between'>
+    <div className={`flex h-14 items-center justify-center border-b-[1px] border-b-richblack-700 ${
+      location.pathname !== "/" ? "bg-richblack-800" : ""
+    } transition-all duration-200`}>
+      <div className="flex w-11/12 max-w-maxContent items-center justify-between">
         {/* Image */}
       <Link to="/">
         <img src={logo} width={160} height={42} loading='lazy'/>
       </Link>
 
       {/* Nav Links */}
-      <nav>
-        <ul className='md:flex gap-x-6 text-richblack-25 hidden'>
+      <nav className="hidden md:block">
+        <ul className='flex gap-x-6 text-richblack-25 '>
             {NavbarLinks.map((link, index) => (
               <li key={index}>
                 {link.title === "Catalog" ? (
@@ -83,9 +70,6 @@ const Navbar = () => {
                         ) : subLinks.length ? (
                           <>
                             {subLinks
-                            //   ?.filter(
-                            //     (subLink) => subLink?.length > 0
-                            //   )
                               .map((subLink, i) => (
                                 <Link
                                   to={`/catalog/${subLink.name
@@ -125,15 +109,15 @@ const Navbar = () => {
 
 
         {/* Login/SignUp/Dashboard */}
-        <div className='md:flex gap-x-4 items-center hidden'>
+        <div  className=" items-center gap-x-4 flex">
 
             {
                 user && user?.accountType != ACCOUNT_TYPE.INSTRUCTOR && (
                     <Link to="/dashboard/cart" className='relative text-white flex items-center justify-center'>
-                        <AiOutlineShoppingCart/>
+                        <AiOutlineShoppingCart className="text-2xl text-richblack-100"/>
                         {
                             totalItems > 0 && (
-                                <span className='absolute bottom-2 left-4 text-yellow-50'>
+                                <span className="absolute -bottom-2 -right-2 grid h-5 w-5 place-items-center overflow-hidden rounded-full bg-richblack-600 text-center text-xs font-bold text-yellow-100">
                                     {totalItems}
                                 </span>
                             )
@@ -162,6 +146,9 @@ const Navbar = () => {
             {
                 token !== null && <ProfileDropDown />
             }
+            <button className="mr-4 md:hidden">
+              <AiOutlineMenu fontSize={24} fill="#AFB2BF" />
+            </button>
             
         </div>
 

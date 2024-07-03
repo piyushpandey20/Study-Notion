@@ -13,9 +13,7 @@ const RenderTotalAmount = () => {
     const dispatch = useDispatch()
     
     const handleBuyCourse = () => {
-      // console.log("buying the course")
         const courses = cart.map((course) => course._id);
-        // console.log("Bought these course:",courses)
         //API integration for payment
         buyCourse(token,courses,user,navigate,dispatch)
     }

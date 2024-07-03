@@ -31,7 +31,6 @@ const CourseDetails = () => {
         const getCourseFullDetails = async() => {
             try{
                 const result = await fetchCourseDetails(courseId)
-                // console.log("result",result)
                 setCourseData(result.data[0])
             }
             catch(error){
@@ -43,9 +42,7 @@ const CourseDetails = () => {
 
     const [avgReviewCount,setAvgReviewCount] = useState(0)
     useEffect(() => {
-        // console.log("courseData",courseData)
         const count = GetAvgRating(courseData?.ratingAndReviews)
-        // console.log("count",count)
         setAvgReviewCount(count)
 
     },[courseData])
@@ -71,7 +68,6 @@ const CourseDetails = () => {
     //to update
     const handleBuyCourse = () => {
         if(token){
-            // console.log("inside handle fn",token)
             buyCourse(token,[courseId],user,navigate,dispatch)
             return
         }

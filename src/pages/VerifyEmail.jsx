@@ -17,7 +17,6 @@ const VerifyEmail = () => {
     },[])
 
     const handleOnSubmit = (e) => {
-        // console.log("inside handle on submit")
         e.preventDefault();
         const {
             accountType,
@@ -26,9 +25,7 @@ const VerifyEmail = () => {
             email,
             password,
             confirmPassword,
-            // otp,
         } = signupData
-        // console.log("sending otp",otp)
         dispatch(signUp(accountType,firstName,lastName,email,password,confirmPassword,otp,navigate))
     }
 

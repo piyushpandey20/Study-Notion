@@ -17,15 +17,9 @@ const ReviewSlider = () => {
     useEffect(() => {
         const fetchAllReviews = async() => {
             const {data} = await apiConnector("GET",ratingsEndpoints.REVIEWS_DETAILS_API)
-            // console.log("response for fetching all reviews ",response)
-            // console.log("response for fetching all reviews ",data)
-            // const {data} = response
             if(data?.success){
                 setReviews(data?.data)
             }
-
-            // console.log("printing reviews",reviews)
-            
         }
         fetchAllReviews()
     },[])

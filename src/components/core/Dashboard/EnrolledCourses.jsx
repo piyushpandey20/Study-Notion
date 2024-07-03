@@ -22,7 +22,6 @@ const EnrolledCourses = () => {
     useEffect(() => {
         getEnrolledCourses()
     },[])
-    // console.log(enrolledCourses?.[0]?.courseContent?.[0])
   return (
     <div>
         <div className="text-3xl text-richblack-50">Enrolled Courses</div>
@@ -51,9 +50,6 @@ const EnrolledCourses = () => {
                                 className={`flex items-center border border-richblack-700 `}
                                 key={index}
                             >
-                                {/* {
-                                    console.log(course)
-                                } */}
                                 <div
                                 className="flex w-[45%] cursor-pointer items-center gap-4 px-5 py-3"
                                 onClick={() => {

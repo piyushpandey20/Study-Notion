@@ -14,9 +14,7 @@ exports.auth = async(req,res,next) =>{
         }
         //verify token
         try{
-            // console.log("token",token)
             const decode = jwt.verify(token,process.env.JWT_SECRET);
-            // console.log("decode",decode)
             req.user = decode;
         }
         catch(err){

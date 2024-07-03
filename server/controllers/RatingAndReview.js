@@ -6,10 +6,8 @@ exports.createRating = async (req, res) => {
 
         //get user id
         const userId = req.user.id;
-        // console.log("userID",userId)
         //fetchdata from req body
         const {rating, review, courseId} = req.body;
-        console.log("courseId",courseId)
         //check if user is enrolled or not
         const courseDetails = await Course.findOne(
                                     {_id:courseId,
@@ -48,7 +46,6 @@ exports.createRating = async (req, res) => {
                                         }
                                     },
                                     {new: true});
-        console.log(updatedCourseDetails);
         //return response
         return res.status(200).json({
             success:true,
