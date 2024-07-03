@@ -14,7 +14,7 @@ const {
 
 const { auth } = require("../middlewares/auth")
 
-router.post("/login", auth,login)
+router.post("/login", login)
 router.post("/signup",signup)
 router.post("/sendotp", sendotp)
 router.post("/changepassword", auth, changePassword)
