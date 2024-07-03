@@ -33,21 +33,24 @@ const Navbar = () => {
     const [subLinks, setSubLinks] = useState([])
     const [loading, setLoading] = useState(false)
 
-    useEffect(() => async() => {
+    useEffect(() => {
+      ;(async () => {
         setLoading(true)
-          try {
-            const res = await apiConnector("GET", categories.CATEGORIES_API)
-            console.log("result of category api",res)
-            setSubLinks(res.data.allCategories)
-          } catch (error) {
-            console.log("Could not fetch Categories.", error)
-          }
-          setLoading(false)
-    },[])
-    console.log("subLinks",subLinks)
-      const matchRoute = (route) => {
-        return matchPath({ path: route }, location.pathname)
-      }
+        try {
+          const res = await apiConnector("GET", categories.CATEGORIES_API)
+          setSubLinks(res.data.data)
+        } catch (error) {
+          console.log("Could not fetch Categories.", error)
+        }
+        setLoading(false)
+      })()
+    }, [])
+  
+    // console.log("sub links", subLinks)
+  
+    const matchRoute = (route) => {
+      return matchPath({ path: route }, location.pathname)
+    }
 
   return (
     <div className='flex h-14 items-center justify-center border-b-[1px] border-b-richblack-700'>
