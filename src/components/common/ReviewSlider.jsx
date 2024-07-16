@@ -35,12 +35,6 @@ const RatingSlider = () => {
   return (
     <div>
         <Swiper
-                 mousewheel={
-                      {
-                          enabled: true,
-                          forceToAxis: true,
-                      } 
-                 }
                  keyboard={
                       {
                           enabled: true,
