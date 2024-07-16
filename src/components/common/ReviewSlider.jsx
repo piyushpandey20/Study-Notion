@@ -4,9 +4,7 @@ import "swiper/css"
 import "swiper/css/free-mode"
 import "swiper/css/pagination"
 import "swiper/css/navigation";
-// import SwiperCore, { Mousewheel } from "swiper";
-// SwiperCore.use([Mousewheel]);
-import { Autoplay}  from 'swiper'
+// import { Autoplay,Mousewheel, Keyboard}  from 'swiper'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import "react-loading-skeleton/dist/skeleton.css";
 import { useEffect, useState } from 'react';
@@ -54,12 +52,12 @@ const RatingSlider = () => {
                     loop={true}
                     spaceBetween={20}
                     pagination={false}
-                    modules={[ Autoplay]}
+                    // modules={[Mousewheel,Keyboard, Autoplay]}
                     className="mySwiper md:pt-5"
-                    autoplay={{
-                    delay: 2000,
-                    disableOnInteraction: false,
-                    }}
+                    // autoplay={{
+                    // delay: 2000,
+                    // disableOnInteraction: false,
+                    // }}
                     style={{
                         "--swiper-navigation-size": "20px",
                       }}
