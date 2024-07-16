@@ -6,7 +6,7 @@ import "swiper/css/pagination"
 import "swiper/css/navigation";
 import SwiperCore, { Mousewheel } from "swiper";
 SwiperCore.use([Mousewheel]);
-import { Autoplay,Mousewheel, Keyboard}  from 'swiper'
+import { Autoplay, Keyboard}  from 'swiper'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import "react-loading-skeleton/dist/skeleton.css";
 import { useEffect, useState } from 'react';
