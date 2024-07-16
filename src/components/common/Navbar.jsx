@@ -149,8 +149,8 @@ const NavBar = ({ setProgress }) => {
                             <p className=' text-xl text-yellow-50 font-semibold'>Courses</p>
                             <div className=' flex flex-col items-end pr-4'>
                                 {
-                                    sublinks?.length < 0 ? (<div></div>) : (
-                                        sublinks?.map((element, index) => (
+                                    subLinks?.length < 0 ? (<div></div>) : (
+                                        subLinks?.map((element, index) => (
                                             <Link to={`/catalog/${element?.name}`} key={index} onClick={() => { dispatch(setProgress(30)); shownav() }} className="p-2 text-sm">
                                                 <p className=' text-richblack-5 '>
                                                     {element?.name}
@@ -190,8 +190,8 @@ const NavBar = ({ setProgress }) => {
                                             <div className='invisible absolute left-[50%] top-[50%] z-[1000] flex w-[200px] translate-x-[-50%] translate-y-[3em] flex-col rounded-lg bg-richblack-5 p-4 text-richblack-900 opacity-0 transition-all duration-150 group-hover:visible group-hover:translate-y-[1.65em] group-hover:opacity-100 lg:w-[300px]'>
                                                 <div className='absolute left-[50%] top-0 -z-10 h-6 w-6 translate-x-[80%] translate-y-[-40%] rotate-45 select-none rounded bg-richblack-5'></div>
                                                 {
-                                                    sublinks?.length < 0 ? (<div></div>) : (
-                                                        sublinks?.map((element, index) => (
+                                                    subLinks?.length < 0 ? (<div></div>) : (
+                                                        subLinks?.map((element, index) => (
                                                             <Link to={`/catalog/${element?.name}`} key={index} className="rounded-lg bg-transparent py-4 pl-4 hover:bg-richblack-50" onClick={() => { dispatch(setProgress(30)) }}>
                                                                 <p className=''>
                                                                     {element?.name}
