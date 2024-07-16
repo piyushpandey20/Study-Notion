@@ -151,9 +151,12 @@ const NavBar = ({ setProgress }) => {
                                 {
                                     subLinks?.length < 0 ? (<div></div>) : (
                                         subLinks?.map((element, index) => (
-                                            <Link to={`/catalog/${element?.name}`} key={index} onClick={() => { dispatch(setProgress(30)); shownav() }} className="p-2 text-sm">
+                                            <Link to={`/catalog/${element.name
+                                              .split(" ")
+                                              .join("-")
+                                              .toLowerCase()}`} key={index} onClick={() => { dispatch(setProgress(30)); shownav() }} className="p-2 text-sm">
                                                 <p className=' text-richblack-5 '>
-                                                    {element?.name}
+                                                    {element.name}
                                                 </p>
                                             </Link>
                                         )))
