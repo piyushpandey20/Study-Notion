@@ -8,9 +8,9 @@ import { Autoplay,Mousewheel, Keyboard}  from 'swiper'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import "react-loading-skeleton/dist/skeleton.css";
 import { useEffect, useState } from 'react';
-import { ratingsEndpoints } from '../../../services/apis'
-import { apiConnector } from '../../../services/apiConnector'
-import RatingStars from '../../common/RatingStars'
+import { ratingsEndpoints } from '../../services/apis'
+import { apiConnector } from '../../services/apiconnector'
+import RatingStars from "./RatingStars"
 
 
 const RatingSlider = () => {
