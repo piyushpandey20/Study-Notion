@@ -6,7 +6,7 @@ import "swiper/css/pagination"
 import "swiper/css/navigation";
 // import SwiperCore, { Mousewheel } from "swiper";
 // SwiperCore.use([Mousewheel]);
-import { Autoplay, Keyboard}  from 'swiper'
+import { Autoplay}  from 'swiper'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import "react-loading-skeleton/dist/skeleton.css";
 import { useEffect, useState } from 'react';
@@ -43,18 +43,18 @@ const RatingSlider = () => {
                 //           forceToAxis: true,
                 //       } 
                 //  }
-                 keyboard={
-                      {
-                          enabled: true,
-                          onlyInViewport: true,
-                      }
-                 }
+                //  keyboard={
+                //       {
+                //           enabled: true,
+                //           onlyInViewport: true,
+                //       }
+                //  }
                  allowSlidePrev={true}
                     slidesPerView={1}
                     loop={true}
                     spaceBetween={20}
                     pagination={false}
-                    modules={[Keyboard, Autoplay]}
+                    modules={[ Autoplay]}
                     className="mySwiper md:pt-5"
                     autoplay={{
                     delay: 2000,
