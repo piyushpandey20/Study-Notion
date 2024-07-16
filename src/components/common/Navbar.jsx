@@ -32,24 +32,25 @@ const NavBar = ({ setProgress }) => {
     }
 
 
-    const [sublinks, setsublinks] = useState([]);
-    const fetchSublinks = async () => {
-        try {
-            const result = await apiConnector("GET", categories.CATEGORIES_API);
-            if (result?.data?.data?.length > 0) {
-                setsublinks(result?.data?.data);
-            }
-            localStorage.setItem("sublinks", JSON.stringify(result.data.data));
+    const [subLinks, setSubLinks] = useState([])
+    const [loading, setLoading] = useState(false)
 
-        } catch (error) {
-            // setsublinks(JSON.parse(localStorage.getItem("sublinks")));
-            // console.log("could not fetch sublinks",localStorage.getItem("sublinks"));
-            console.log(error);
-        }
-    }
     useEffect(() => {
-        fetchSublinks();
+      ;(async () => {
+        setLoading(true)
+        try {
+          const res = await apiConnector("GET", categories.CATEGORIES_API)
+          setSubLinks(res.data.allCategories)
+        } catch (error) {
+          console.log("Could not fetch Categories.", error)
+        }
+        setLoading(false)
+      })()
     }, [])
+  
+    const matchRoute = (route) => {
+      return matchPath({ path: route }, location.pathname)
+    }
 
     const show = useRef();
     const overlay = useRef();
