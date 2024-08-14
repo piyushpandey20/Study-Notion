@@ -201,7 +201,7 @@ const Home = () => {
         <h1 className="text-center text-4xl font-semibold mt-8">
           Reviews from other learners
         </h1>
-        <ReviewSlider />
+        {/* <ReviewSlider /> */}
       </div>
 
 
