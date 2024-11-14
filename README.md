@@ -1,31 +1,15 @@
-# React & Tailwind CSS Starter Pack
-
-This is a starter pack for creating React projects with Tailwind CSS configured. It uses React version **18.2** and Tailwind CSS version **3.2**.
-
-## Usage
-
-This starter pack includes a basic setup for using **Tailwind CSS with React**. To start building your own components and styles, follow these steps:
-
-1. Clone the repository to your local machine.
-    ```sh
-    git clone https://github.com/thepranaygupta/react-tailwind-css-starter-pack.git
-    ```
-
-1. Install the required packages.
-    ```sh
-    cd react-tailwind-css-starter-pack
-    npm install
-    ```
-
-1. Start the development server.
-    ```sh
-    npm start
-    ```
-1. Open the project in your browser at https://studynotion-frontend-lac.vercel.app/ to view your project.
-1. Create your React components and add your styles using Tailwind classes. You can also create new CSS files and import them into your components.
-
-The project is set up to use `postcss-cli` to process your CSS files. You can add your own `tailwind.config.js` file to customize your Tailwind setup.
-
-## Contributing
-
-Contributions are welcome! If you have any suggestions or find any issues, please feel free to open an issue or a pull request.
+**StudyNotion**
+StudyNotion is a web application built on the MERN stack (MongoDB, Express, React, Node.js) that serves as a dynamic educational platform. This project allows users to engage with various educational resources, track their progress, and interact with content in an intuitive, user-friendly environment.
+**Features**
+User Authentication: Secure sign-up, login, and password recovery using JWT-based authentication.
+Course Management: Create, read, update, and delete (CRUD) courses with rich text content and media.
+Progress Tracking: Track user progress across various courses.
+Content Interaction: Comment and rate courses to provide feedback and suggestions.
+Responsive Design: Optimized for different screen sizes and devices.
+**Tech Stack**
+Frontend: React.js, HTML5, CSS3
+Backend: Node.js, Express.js
+Database: MongoDB
+State Management: Redux (if applicable)
+Authentication: JSON Web Tokens (JWT)
+Other: RESTful API, Axios for HTTP requests, bcrypt for password hashing
