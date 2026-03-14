@@ -89,6 +89,19 @@ function CourseDetailsCard({course,setConfirmationModal,handleBuyCourse}){
                 <p className={`my-2 text-xl font-semibold `}>This Course Includes:</p>
                 <div className="flex flex-col gap-3 text-sm text-caribbeangreen-100">
                     {
+                        course?.tag?.map((item,index) => (
+                            <p key={index} className='flex gap-2'>
+                                <BsFillCaretRightFill />
+                                <span>{item}</span>
+                            </p>
+                        ))
+                    }
+                </div>
+            </div>
+            <div>
+                <p className={`my-2 text-md`}>What you should have:</p>
+                <div className="flex flex-col gap-3 text-sm text-caribbeangreen-100">
+                    {
                         course?.instructions?.map((item,index) => (
                             <p key={index} className='flex gap-2'>
                                 <BsFillCaretRightFill />
